@@ -44,7 +44,7 @@ metadata:
                     "value": "false"
                   }
                 ],
-                "image": "dellemc/csi-isilon:v2.1.0",
+                "image": "docker.io/dellemc/csi-isilon@sha256:5cf558cf80b6cbc9b5ff7a1766bb902663774b5461dc43ca590215edcef148e2",
                 "imagePullPolicy": "IfNotPresent"
               },
               "configVersion": "v2.1.0",
@@ -130,7 +130,7 @@ metadata:
                     "value": "4"
                   }
                 ],
-                "image": "dellemc/csi-powermax:v2.1.0",
+                "image": "docker.io/dellemc/csi-powermax@sha256:58489d23b52d1599820425da8a45ede7a0348f7e6c23e95e85ad124c647b94a4",
                 "imagePullPolicy": "IfNotPresent"
               },
               "configVersion": "v2.1.0",
@@ -170,7 +170,7 @@ metadata:
               },
               "mode": "Linked"
             },
-            "image": "dellemc/csipowermax-reverseproxy:v1.4.0",
+            "image": "docker.io/dellemc/csipowermax-reverseproxy@sha256:c236cb87d5799ef239b3e5df956761e1c042f3d5686c8e5728c06edfef3095b7",
             "imagePullPolicy": "IfNotPresent",
             "tlsSecret": "csirevproxy-tls-secret"
           }
@@ -195,7 +195,7 @@ metadata:
                     "value": "/etc/fc-ports-filter"
                   }
                 ],
-                "image": "dellemc/csi-powerstore:v2.1.0",
+                "image": "docker.io/dellemc/csi-powerstore@sha256:c3dd54f0da5eec198d0f4f3ddfa93882371b8cd2e45c3b49e1aec14d0669888a",
                 "imagePullPolicy": "IfNotPresent"
               },
               "configVersion": "v2.1.0",
@@ -223,7 +223,7 @@ metadata:
           "spec": {
             "driver": {
               "common": {
-                "image": "dellemc/csi-unity:v2.1.0",
+                "image": "docker.io/dellemc/csi-unity@sha256:55c2d9e5eba9d00acec956b1a19106e61c6a116aaa765d96ef1e0e3a9ec557ad",
                 "imagePullPolicy": "IfNotPresent"
               },
               "configVersion": "v2.1.0",
@@ -276,7 +276,7 @@ metadata:
                     "value": "false"
                   }
                 ],
-                "image": "dellemc/csi-vxflexos:v2.1.0",
+                "image": "docker.io/dellemc/csi-vxflexos@sha256:9e320ce871033e6f326da1195c895caea7e0b4cdfe492f46cbe905efc62be3c1",
                 "imagePullPolicy": "IfNotPresent"
               },
               "configVersion": "v2.1.0",
@@ -290,7 +290,7 @@ metadata:
                       "value": "10.x.x.x,10.x.x.x"
                     }
                   ],
-                  "image": "dellemc/sdc:3.6",
+                  "image": "docker.io/dellemc/sdc@sha256:784b3ad7c0d5fbea8267e7e0be1830383f31d6bb57e4626c55cf5d0de344a272",
                   "imagePullPolicy": "IfNotPresent",
                   "name": "sdc"
                 }
@@ -318,7 +318,7 @@ metadata:
     capabilities: Seamless Upgrades
     categories: Storage
     certified: "true"
-    containerImage: dellemc/dell-csi-operator:v1.6.0
+    containerImage: docker.io/dellemc/dell-csi-operator@sha256:92cad581e2e8aee7bffbe780401d9aa61cb3ff1304569bf315b17607e17ae849
     olm.properties: '[{"type": "olm.maxOpenShiftVersion", "value": "4.9"}]'
     operators.operatorframework.io/builder: operator-sdk-v1.6.1+git
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
@@ -1817,7 +1817,7 @@ spec:
                 env:
                 - name: OPERATOR_DRIVERS
                   value: unity,powermax,isilon,vxflexos,powerstore
-                image: dellemc/dell-csi-operator:v1.6.0
+                image: docker.io/dellemc/dell-csi-operator@sha256:92cad581e2e8aee7bffbe780401d9aa61cb3ff1304569bf315b17607e17ae849
                 imagePullPolicy: Always
                 name: dell-csi-operator-controller
                 resources: {}
@@ -1831,7 +1831,7 @@ spec:
                 - sh
                 - -c
                 - 'if [ -e /configmap/config.tar.gz ]; then /bin/tar -C /etc/config/dell-csi-operator -xzvf /configmap/config.tar.gz --strip-components 1; else echo "Warning: ConfigMap not mounted"; fi'
-                image: docker.io/busybox:1.32.0
+                image: docker.io/busybox@sha256:61771d06daa21aeaf4b2ded5bb80ec85ba561c2a7e248f949f615b8f937a72cd
                 name: config-copy
                 resources: {}
                 volumeMounts:
